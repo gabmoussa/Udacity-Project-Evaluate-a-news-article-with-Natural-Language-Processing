@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="utf-8">
+    <title>Test</title>
+</head>
+<body>
+
+<header >
+    Evaluate A News Article
+</header>
+
+<main>
+    <h1>TEXT ANALYSIS API</h1>
+
+    <p>
+        
+        Natural Language Processing for Effective Understanding of Human-Generated Text
+        Extract meaning and insight from textual content with ease
+    </p>
+
+    <p>
+        The Aylien Text Analysis API provides powerful and flexible AI-driven content analysis solutions that bring the power of NLP to the masses. We help developers, data scientists, and marketers understand human-generated textual content at scale.
+    </p>
+    <h2>Below is an input field, please enter a valid news article url to test it out.</h2>
+    <p>Please note that each of these requests take up 3 of your alloted 1000 API hits today</p>
+
+    <form>
+        <input type="url" name="test_url" value="" placeholder="please enter a valid news article url"/>
+        <input type="submit" name="" value="submit" onclick="return Client.urlHandler(event)" onsubmit="return Client.urlHandler(event)"/>
+    </form>
+
+
+    <section class="link_verify">
+        <span class="link_verify_tag" onclick="this.parentElement.style.display='none';">&times;</span>
+        <div id="incorrect"></div>
+    </section>
+
+    <section class="url-results">
+        <ul>
+            <li>
+                <h3>Text Polarity:</h3>
+                <p id="polarity"></p>
+                <h4>Confidence: </h4>
+                <p id="polarity_confidence"></p>
+            </li>
+
+            <li>
+                <h3>Text Subjectivity:</h3>
+                <p id="subjectivity"></p>
+                <h4>Confidence: </h4>
+                <p id="subjectivity_confidence"></p>
+            </li>
+
+            <h3>Text Excerpt:</h3>
+            <p id="excerpt"></p>
+        </ul>
+    </section>
+
+    </main>
+
+    <footer>
+        <p>Udacity Project on Natural Language Processing</p>
+    </footer>
+
+    <script>
+        if ('serviceWorker' in navigator) {
+            
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js');
+            });
+       }else{
+            console.log("error: service worker not working");
+        }
+    </script>
+
+</body>
+</html>
